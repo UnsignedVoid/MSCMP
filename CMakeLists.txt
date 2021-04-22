@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.19)
 
 project(MySummerCarMP LANGUAGES CSharp CXX ASM_MASM)
 
+add_compile_definitions($<$<CONFIG:Debug>:DEBUG,PUBLIC_RELEASE>)
+
 include(CSharpUtilities)
 include(cmake/NugetRestore.cmake)
 include(cmake/pdb2mdb.cmake)
