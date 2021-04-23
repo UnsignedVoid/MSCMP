@@ -92,23 +92,17 @@ namespace MSCMP {
 		/// </summary>
 		void OnGUI() {
 			if (netManager.IsOnline) { netManager.DrawNameTags(); }
-
-			GUI.color = Color.white;
-			GUI.Label(new Rect(2, Screen.height - 18, 500, 20),
-					"MSCMP " + Client.GetMODDisplayVersion());
-
-			GUI.color = new Color(1.0f, 1.0f, 1.0f, 0.25f);
-			GUI.DrawTexture(new Rect(2, Screen.height - 80, 76, 66), modLogo);
-
 			// Draw online state.
 
 			if (netManager.IsOnline) {
 				GUI.color = Color.green;
-				GUI.Label(new Rect(2, 2, 500, 20),
+				GUI.skin.label.alignment = TextAnchor.UpperRight;
+				GUI.Label(new Rect(Screen.width - 210, 2, 200, 20),
 						"ONLINE " + (netManager.IsHost ? "HOST" : "PLAYER"));
 			} else {
 				GUI.color = Color.red;
-				GUI.Label(new Rect(2, 2, 500, 20), "OFFLINE");
+				GUI.skin.label.alignment = TextAnchor.UpperRight;
+				GUI.Label(new Rect(Screen.width - 210, 2, 200, 20), "OFFLINE");
 			}
 
 			MessagesList.Draw();
@@ -231,7 +225,7 @@ namespace MSCMP {
 		private void UpdateInvitePanel() {
 			if (!IsInvitePanelVisible()) {
 				GUI.color = Color.white;
-				GUI.Label(new Rect(0, Screen.height - 100, 200.0f, 20.0f),
+				GUI.Label(new Rect(0, Screen.height - 300, 200.0f, 20.0f),
 						"[ESCAPE] - Invite friend");
 				return;
 			}

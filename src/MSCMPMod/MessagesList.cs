@@ -52,12 +52,13 @@ namespace MSCMP {
 		/// </summary>
 
 		public static void Draw() {
-			float x = 10.0f;
-			float y = Screen.height / 2.0f;
+			float x = Screen.width - 510.0f;
+			float y = 3;
 			const float lineWidth = 500;
 			const float lineHeight = 20;
 			for (int i = 0; i < MESSAGES_COUNT; ++i) {
 				if (messages[i] != null && messages[i].Length > 0) {
+					GUI.skin.label.alignment = TextAnchor.UpperRight;
 					GUI.color = Color.black;
 					GUI.Label(new Rect(x + 1, y + 1, lineWidth, lineHeight), messages[i]);
 
